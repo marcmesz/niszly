@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;600&display=swap');
+
+@mixin rounded{
+    border-radius: 15px;
+}
+
+$themeColor: #ff3150;
+$light: #fff;
+$dark: #333;
+
+html, body, input, button{
+    font-family: 'Readex Pro', sans-serif;
+}
+
+main{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 2.5em;
+}
+
+input, button{
+    @include rounded();
+    font-size: 1em;
+    padding: 1em;
+
+}
+
+input{
+    border: 1px solid $dark;
+}
+
+button{
+    font-weight: 600;
+    background-color: $dark;
+    color: $light;
+    border: none;
+    cursor: pointer;
+    &:hover{
+        background-color: $themeColor;
+    }
+}
+
+.results{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.result{
+    @include rounded();
+    background-color: $themeColor;
+    color: white;
+    padding: .8em 1.2em;
+    font-size: 1.2em;
+}
+
+.results-wordcount{
+    color: $themeColor;
+}
+
+.results-container{
+    padding-top: 1em;
+    border-top: 1px solid $dark;
+}
+
+@supports (gap: .5em){
+    form, .results{
+        gap: .6em;
+    }
+}

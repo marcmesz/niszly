@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;600&display=swap");
+html, body, input, button {
+  font-family: 'Readex Pro', sans-serif;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  margin-bottom: 2.5em;
+}
+
+input, button {
+  border-radius: 15px;
+  font-size: 1em;
+  padding: 1em;
+}
+
+input {
+  border: 1px solid #333;
+}
+
+button {
+  font-weight: 600;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff3150;
+}
+
+.results {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.result {
+  border-radius: 15px;
+  background-color: #ff3150;
+  color: white;
+  padding: .8em 1.2em;
+  font-size: 1.2em;
+}
+
+.results-wordcount {
+  color: #ff3150;
+}
+
+.results-container {
+  padding-top: 1em;
+  border-top: 1px solid #333;
+}
+
+@supports (gap: 0.5em) {
+  form, .results {
+    gap: .6em;
+  }
+}
+/*# sourceMappingURL=style.css.map */
