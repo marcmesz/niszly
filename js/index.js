@@ -28,12 +28,12 @@ form.addEventListener("submit",(e)=>{
                 let response = connect.responseXML.body
 
                 spinner.style.display="none"
-                const IGNORE = ["style", "script"];
+                const IGNORE = ["style", "iframe", "script", "noscript"];
                 const walker = document.createTreeWalker(response, NodeFilter.SHOW_TEXT);
                 const pairs = [];
                 const includesLy = [];
                 let node;
-                
+
                 while ((node = walker.nextNode()) !== null) {
                     const parent = node.parentNode.tagName;
                     if (IGNORE.includes(parent)) {
@@ -42,18 +42,15 @@ form.addEventListener("submit",(e)=>{
                     const value = node.nodeValue.trim();
                     if (value.length === 0) {
                         continue;
-                    }
+                    }     
+
+                        pairs.push([parent.toLowerCase(), value]);                 
                     
-                    pairs.push([parent.toLowerCase(), value]);
-                    
-                    
-                                        
                 }
 
-                /* console.log(pairs) */
 
                 pairs.forEach(item=>{
-                    if(item[0]!=="script" && item[0]!=="style" && item[1].includes(searchChar)){
+                    if(item[0]!=="script" && item[0]!=="style" && item[0]!=="iframe" && item[0]!=="noscript" && item[1].includes(searchChar)){
                         includesLy.push(item[1])
                     }
                 })
@@ -85,15 +82,6 @@ form.addEventListener("submit",(e)=>{
         alert("Please enter a valid URL")
     }
 })
-
-
-
-
-function textNodesUnder(el){
-    let n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
-    while(n=walk.nextNode()) a.push(n);
-    return a;
-  }
 
 function resetVariables(){
     resultsContainer.style.display="none"
