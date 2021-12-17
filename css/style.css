@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;600&display=swap");
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 html, body, input, button {
   font-family: 'Readex Pro', sans-serif;
 }
@@ -64,13 +69,55 @@ button:hover {
 }
 
 .results-container {
+  display: none;
   padding-top: 1em;
-  border-top: 1px solid #333;
+  border-top: 1px solid #ff3150;
+}
+
+.img-holder {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loading {
+  max-width: 50px;
 }
 
 @supports (gap: 0.5em) {
-  form, .results {
+  form, .results, .img-holder {
     gap: .6em;
   }
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  -webkit-animation: rotating 1.5s linear infinite;
+  animation: rotating 1.5s linear infinite;
 }
 /*# sourceMappingURL=style.css.map */

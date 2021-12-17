@@ -8,6 +8,10 @@ $themeColor: #ff3150;
 $light: #fff;
 $dark: #333;
 
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
 html, body, input, button{
     font-family: 'Readex Pro', sans-serif;
 }
@@ -65,12 +69,58 @@ button{
 }
 
 .results-container{
+    display: none;
     padding-top: 1em;
-    border-top: 1px solid $dark;
+    border-top: 1px solid $themeColor;
+}
+
+.img-holder{
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.loading{
+    max-width: 50px;
 }
 
 @supports (gap: .5em){
-    form, .results{
+    form, .results, .img-holder{
         gap: .6em;
     }
 }
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  .loading {
+    -webkit-animation: rotating 1.5s linear infinite;
+    -moz-animation: rotating 1.5s linear infinite;
+    -ms-animation: rotating 1.5s linear infinite;
+    -o-animation: rotating 1.5s linear infinite;
+    animation: rotating 1.5s linear infinite;
+  }

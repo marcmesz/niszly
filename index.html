@@ -11,24 +11,14 @@
         <section>
             <h1>Please enter a valid URL to get words that includes "ly"</h1>
             <form id="url-form">
-                <input type="text" name="url" class="url" placeholder="example: https://istyle.hu/blog/megszuletett-az-m1-chip"/>
-                <button class="btn btn-submit">Get words that include "ly"</button>
+                <input type="text" id="url" name="url" class="url" placeholder="example: https://istyle.hu/blog/megszuletett-az-m1-chip"/>
+                <button class="btn btn-submit">Get words</button>
             </form>
+            <div class="img-holder"><img src="img/loading.png" class="loading" alt="loading"/><p>Loading...</p></div>
             <div class="results-container">
-                <h3>The specified url contains <span class="results-wordcount">16 words</span> that contain the characters "ly":</h3>
+                <h2 id="specified-url"></h2>
+                <h3>The specified URL includes <span class="results-wordcount"></span> that contain the characters "ly"</h3>
                 <div class="results">
-                    <div class="result">mészöly</div>
-                    <div class="result">naspolya</div>
-                    <div class="result">nápolyi</div>
-                    <div class="result">lyukas</div>
-                    <div class="result">gulyás</div>
-                    <div class="result">carly</div>
-                    <div class="result">mészöly</div>
-                    <div class="result">naspolya</div>
-                    <div class="result">nápolyi</div>
-                    <div class="result">lyukas</div>
-                    <div class="result">gulyás</div>
-                    <div class="result">carly</div>
                 </div>
             </div>
         </section>
