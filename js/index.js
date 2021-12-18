@@ -52,7 +52,7 @@ form.addEventListener("submit",(e)=>{
 
 
                 pairs.forEach(item=>{
-                    if(item[0]!=="script" && item[0]!=="style" && item[0]!=="iframe" && item[0]!=="noscript" && item[1].includes(searchChar)){
+                    if(item[0]!=="script" && item[0]!=="style" && item[0]!=="iframe" && item[0]!=="noscript" && item[1].toLowerCase().includes(searchChar)){
                         includesLy.push(item[1])
                     }
                 })
@@ -60,7 +60,7 @@ form.addEventListener("submit",(e)=>{
                 includesLy.forEach(item=>{
                     const words = item.split(" ")
                     words.forEach(word=>{
-                        if(word.includes(searchChar)){
+                        if(word.toLowerCase().includes(searchChar)){
                             wordsIncludeLy.push(word)
                         }
                     })
