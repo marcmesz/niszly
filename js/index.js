@@ -28,7 +28,7 @@ form.addEventListener("submit",(e)=>{
                 let response = connect.responseXML.body
 
                 spinner.style.display="none"
-                const IGNORE = ["style", "iframe", "script", "noscript"];
+                const IGNORE = ["style", "script", "noscript"];
                 const walker = document.createTreeWalker(response, NodeFilter.SHOW_TEXT);
                 const pairs = [];
                 const includesLy = [];
@@ -44,7 +44,7 @@ form.addEventListener("submit",(e)=>{
                         continue;
                     }     
 
-                        pairs.push([parent.toLowerCase(), value]);                 
+                    pairs.push([parent.toLowerCase(), value]);                        
                     
                 }
 
@@ -90,3 +90,5 @@ function resetVariables(){
     resultsDiv = ""
     resultCount = 0
 }
+
+
