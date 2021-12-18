@@ -88,6 +88,10 @@ button:hover {
   max-width: 50px;
 }
 
+#specified-url {
+  word-break: break-all;
+}
+
 @supports (gap: 0.5em) {
   form, .results, .img-holder {
     gap: .6em;

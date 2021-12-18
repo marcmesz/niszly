@@ -19,7 +19,9 @@ form.addEventListener("submit",(e)=>{
     const url = formData.get("url")
     inputField.value=""
     resetVariables()
-    if(url){
+    const urlEnd = url.split(".")
+    
+    if(url && urlEnd[urlEnd.length-1].length>1 && urlEnd.length>=2 && urlEnd[0]!==""){
         spinner.style.display="flex"
         connect.open("GET","https://corsanywhere.herokuapp.com/"+url,true)
         connect.responseType="document"
@@ -70,11 +72,15 @@ form.addEventListener("submit",(e)=>{
                 results.innerHTML+=resultsDiv
                 resultsContainer.style.display="block"
             }
+            else{
+                spinner.style.display="none"
+                alert("Error: the following URL does not exist: \n"+url)
+            }
         }
         connect.onerror = ()=>{
             spinner.style.display="none"
             console.error(connect.status, connect.statusText)
-            alert("Error: the following link does not support crawling: \n"+url)
+            alert("Error: the following URL does not support crawling: \n"+url)
         }
         connect.send()
     }
